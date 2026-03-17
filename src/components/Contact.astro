@@ -1,0 +1,133 @@
+---
+---
+
+<section id="contact" class="py-32 px-6 bg-surface-800/50">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16">
+      <div>
+        <p class="text-brand-500 text-sm font-semibold uppercase tracking-[0.2em] mb-4">Contact</p>
+        <h2 class="text-4xl sm:text-5xl font-bold tracking-tight mb-8">
+          Let's Work<br/>Together<span class="text-brand-500">.</span>
+        </h2>
+        <p class="text-neutral-400 text-lg leading-relaxed mb-10">
+          Looking for a bassist for your project, session, or live gig?
+          Have a creative idea you want to collaborate on? Drop me a line
+          and let's make something great.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-700 border border-white/5 flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-neutral-500">Email</p>
+              <p class="text-white font-medium">hello@alexmifsud.com</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-700 border border-white/5 flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-neutral-500">Based in</p>
+              <p class="text-white font-medium">Malta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="space-y-6">
+        <div>
+          <label for="name" class="block text-sm font-medium text-neutral-400 mb-2">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full px-4 py-3 bg-surface-700 border border-white/10 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-colors"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-neutral-400 mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-3 bg-surface-700 border border-white/10 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-colors"
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div>
+          <label for="subject" class="block text-sm font-medium text-neutral-400 mb-2">Subject</label>
+          <select
+            id="subject"
+            name="subject"
+            class="w-full px-4 py-3 bg-surface-700 border border-white/10 rounded-xl text-white focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-colors"
+          >
+            <option value="session">Session Work</option>
+            <option value="live">Live Performance</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-neutral-400 mb-2">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full px-4 py-3 bg-surface-700 border border-white/10 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/25 transition-colors resize-none"
+            placeholder="Tell me about your project..."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full px-8 py-4 bg-brand-500 hover:bg-brand-400 text-surface-900 font-bold text-sm uppercase tracking-widest rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-brand-500/25 hover:-translate-y-0.5"
+        >
+          Send Message
+        </button>
+
+        <p id="form-status" class="text-center text-sm hidden"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (status) {
+      status.classList.remove('hidden');
+      status.textContent = 'Thanks for reaching out! I\'ll get back to you soon.';
+      status.className = 'text-center text-sm text-brand-500 mt-4';
+    }
+
+    form.reset();
+
+    // TODO: Connect to a form backend service (Formspree, Cloudflare Workers, etc.)
+    // Example with Formspree:
+    // fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    //   method: 'POST',
+    //   body: new FormData(form),
+    //   headers: { 'Accept': 'application/json' },
+    // });
+  });
+</script>
