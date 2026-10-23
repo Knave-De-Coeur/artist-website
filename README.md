@@ -1,12 +1,12 @@
 # Artist Website
 
-Portfolio website for Via Axum — bass player, session musician, and artist. Built with Astro and Tailwind CSS, deployed on Cloudflare Pages.
+Portfolio website for Via Axum — bass player, session musician, and artist. Built with Astro and Tailwind CSS, deployed on Cloudflare Workers.
 
 ## Tech Stack
 
 - [Astro](https://astro.build/) — Static site framework
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first styling
-- [Cloudflare Pages](https://pages.cloudflare.com/) — Hosting & deployment
+- [Cloudflare Workers](https://workers.cloudflare.com/) — Static asset hosting and deployment
 
 ## Getting Started
 
@@ -21,10 +21,18 @@ Dev server runs at `http://localhost:4321`.
 
 ```bash
 pnpm build
+pnpm preview
+```
+
+`pnpm preview` builds the site and serves it locally with the Workers runtime.
+
+Deploy to Cloudflare Workers with:
+
+```bash
 pnpm deploy
 ```
 
-Or push to `main` for automatic deployment via Cloudflare Pages.
+The deploy command builds the site before publishing it.
 
 ## Project Structure
 
