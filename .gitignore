@@ -1,7 +1,33 @@
+# Dependencies
 node_modules/
+.pnpm-store/
+
+# Build and test output
 dist/
 .astro/
+coverage/
+
+# Cloudflare local state and secrets
 .wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db

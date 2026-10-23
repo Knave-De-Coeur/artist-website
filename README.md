@@ -11,8 +11,8 @@ Portfolio website for Via Axum — bass player, session musician, and artist. Bu
 ## Getting Started
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Dev server runs at `http://localhost:4321`.
@@ -20,8 +20,8 @@ Dev server runs at `http://localhost:4321`.
 ## Build & Deploy
 
 ```bash
-npm run build
-npm run deploy
+pnpm build
+pnpm deploy
 ```
 
 Or push to `main` for automatic deployment via Cloudflare Pages.
