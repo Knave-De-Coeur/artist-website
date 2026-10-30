@@ -1,9 +1,82 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "artist-website",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-23",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api",
+      "/api/*",
+      "/admin",
+      "/admin/*",
+      "/media",
+      "/media/*"
+    ],
     "not_found_handling": "404-page"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "migrations_dir": "worker/migrations",
+      "remote": false
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "remote": false
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "redact_query_string": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  },
+  "env": {
+    "preview": {
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "artist-website-preview",
+          "database_id": "REPLACE_WITH_PREVIEW_D1_DATABASE_ID",
+          "migrations_dir": "worker/migrations",
+          "remote": false
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "MEDIA",
+          "bucket_name": "artist-website-preview-media",
+          "remote": false
+        }
+      ]
+    },
+    "production": {
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "artist-website-production",
+          "database_id": "REPLACE_WITH_PRODUCTION_D1_DATABASE_ID",
+          "migrations_dir": "worker/migrations",
+          "remote": false
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "MEDIA",
+          "bucket_name": "artist-website-production-media",
+          "remote": false
+        }
+      ]
+    }
   }
 }

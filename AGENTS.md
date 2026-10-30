@@ -12,6 +12,8 @@ This is a statically generated portfolio site built with Astro and Tailwind CSS.
 - Install dependencies with `pnpm install --frozen-lockfile`.
 - Start Astro development with `pnpm dev`.
 - Create a production build with `pnpm build`.
+- Validate TypeScript and generated Worker binding types with `pnpm typecheck`.
+- Run Worker tests with `pnpm test`.
 - Preview the production build in the local Workers runtime with `pnpm preview`.
 - Validate Worker packaging with `pnpm exec wrangler deploy --dry-run` after building.
 - Run `pnpm deploy` only when the user explicitly asks for a remote deployment.

@@ -1,0 +1,7 @@
+# Copy this file to .dev.vars when later tasks introduce local secrets.
+#
+# TURNSTILE_SECRET_KEY=
+# ACCESS_TEAM_DOMAIN=
+# ACCESS_AUD=
+# IP_HASH_SECRET=
+# DEPLOY_HOOK_URL=

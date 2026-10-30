@@ -5,15 +5,26 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "pnpm build && wrangler dev",
-    "deploy": "pnpm build && wrangler deploy"
+    "preview": "pnpm build && wrangler dev --env=\"\"",
+    "deploy": "pnpm build && wrangler deploy --env production",
+    "test": "pnpm build && vitest run",
+    "test:watch": "pnpm build && vitest",
+    "typecheck": "tsc --noEmit && wrangler types worker-configuration.d.ts --check",
+    "types:worker": "wrangler types worker-configuration.d.ts",
+    "check:worker-types": "wrangler types worker-configuration.d.ts --check"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.5.0",
-    "tailwindcss": "^3.4.17"
+    "chanfana": "^3.4.2",
+    "hono": "^4.13.14",
+    "tailwindcss": "^3.4.17",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.4.10",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.5",
     "wrangler": "^4.151.3"
   },
   "packageManager": "pnpm@12.15.0"
