@@ -888,7 +888,7 @@ Implement the shared runtime schemas, content/media/revision tables, repositorie
 
 #### Code
 
-*Files: `src/lib/content/schema.ts`, `worker/repositories/content.ts`, `worker/repositories/media.ts`, `worker/migrations/0001_content_platform.sql`, `test/worker/content-repository.test.ts`*
+*Files: `src/lib/content/schema.ts`, `worker/repositories/content.ts`, `worker/repositories/media.ts`, `worker/migrations/0001_init_db.sql`, `test/worker/content-repository.test.ts`*
 
 ---
 
